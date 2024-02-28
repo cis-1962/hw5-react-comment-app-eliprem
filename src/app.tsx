@@ -1,35 +1,35 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import './app.css';
+import PostingBlock from './postingBlock';
+import Comment from './comment';
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [comments, setComments] = useState<{ name: string; text: string; key: number}[]>([]);
+  const [key, setKey] = useState(0);
+  
+  const postComment = (e, name: string, text: string, setName, setText) => {
+    e.preventDefault();
+    if (name && text) {
+      setComments(ls => [...ls, { name, text, key}]);
+      setKey(lastKey => lastKey + 1);
+      setName('');
+      setText('');
+    };
+  };
+  
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className= "container marg-auto mt-10">
+      <h1> 🤠 Eli&apos;s Comment Central!!! 🤠 </h1>
+      <PostingBlock postComment={postComment} buttonType='submit' parentID={null}/>
+      <ul>
+        {comments.map(elem => (
+          <Comment key={elem.key} comment={elem} depth={0}/>
+        ))}
+      </ul>
+    </div>
   );
+
 }
 
 export default App;

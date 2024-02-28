@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif, New Rocker;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,48 +11,110 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+
+
+/*  head formating  */
+
+.container {
+  width: 100%
 }
-a:hover {
-  color: #535bf2;
+
+.marg-auto {
+  margin-left: auto;
+  margin-right: auto
+}
+
+.mt-10 {
+  margin-top: 1.5rem
 }
 
 body {
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  justify-content: center;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-align: center;
+  color: #bcc0ad;
+  position: relative;
+  font-family: 'New Rocker';
 }
 
+input {
+  width: 75%;
+}
+
+textarea {
+  resize: vertical;
+  width: 75%;
+}
+
+form {
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.smaller {
+  transform: scale(0.8, 0.8);
+}
+
+/*  Differentiating between types of buttons  */
+
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  font-weight: 300;
+  font-family: 'New Rocker';
+  background-color: #c27b1f;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  color: #000000;
+  border-color: #000000;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+
+.submit {
+  width: 30%;
+  border-radius: 8px;
+  border: 3px solid #bcc0ad;
+  padding: 0.4em 1em;
+  font-size: 1.5em;
+}
+
+.reply {
+  width: 15%;
+  border-radius: 8px;
+  border: 2px solid #bcc0ad;
+  padding: 0.4em 1em;
+  font-size: 0.75em;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+}
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -65,4 +127,57 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/*  TEXT BOX STYLING  */
+
+.box-border {
+  box-sizing: border-box
+}
+
+.box-height {
+  height: 2.5rem
+}
+
+.rounded {
+  border-radius: 8px
+}
+
+.w-full {
+  width: 300%
+}
+
+.items-center {
+  align-items: center
+}
+
+.pad {
+  padding: .5rem
+}
+
+.mb {
+  margin-bottom: .5rem
+}
+
+/*  FORMATTING FOR POSTED COMMENT SECTIONS  */
+
+.shadow {
+  box-shadow: 0px 0px 10px 5px rgba(172, 160, 130, 0.8);
+}
+
+.name {
+  text-align: left;
+  font-family: 'New Rocker';
+  font-size: 1.75em;
+  padding-top: 5px;
+  padding-left: 15px;
+  color:#c27b1f;
+}
+
+.comment {
+  text-align: left;
+  font-family:'Courier New', Courier, monospace;
+  font-size: 1.25em;
+  padding-top: 5px;
+  padding-left: 15px;
 }
