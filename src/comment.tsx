@@ -1,15 +1,17 @@
 import { useState } from "react";
 import PostingBlock from "./postingBlock";
+import Vote from "./vote";
 
 type CommentProps = {
     comment: { name: string; text: string; key: number };
     depth: number;
+    //timeVal: string;
 }
 
 const Comment = ({comment, depth}: CommentProps) => {
-    //const [reply, setReply] = useState(false);
     const [replies, setReplies] = useState<{ name: string; text: string; key: number}[]>([]);
     const [key, setKey] = useState(0);
+    //const [time, setTime] = useState('');
 
     const postReply = (e, name: string, text:string, setName, setComment) => {
         e.preventDefault();
@@ -20,6 +22,14 @@ const Comment = ({comment, depth}: CommentProps) => {
             setComment('');
         };
     };
+    /* failed attempt to put time in comment section :(
+    const getTime = () => {
+        const now = new Date();
+        const datetime = now.toLocaleString();
+        setTime(datetime);
+        return time;
+    }
+    */
     
     if (depth === 2) {
         return (
@@ -27,7 +37,10 @@ const Comment = ({comment, depth}: CommentProps) => {
                 <div style={{ marginLeft: `${depth * 20}px`}}>
                     <div>
                         <p className="name">{comment.name}</p>
-                        <p className="comment">{comment.text}</p>
+                        <div className="flex-row">
+                            <p className="comment">{comment.text}</p>
+                            <Vote />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -39,7 +52,10 @@ const Comment = ({comment, depth}: CommentProps) => {
             <div style={{ marginLeft: `${depth * 20}px`}}>
                 <div>
                     <p className="name">{comment.name}</p>
-                    <p className="comment">{comment.text}</p>
+                    <div className="flex-row">
+                        <p className="comment">{comment.text}</p>
+                        <Vote />
+                    </div>
                 </div>
                 <div>
                     <PostingBlock postComment={postReply} buttonType="reply" parentID={comment.key}/> 

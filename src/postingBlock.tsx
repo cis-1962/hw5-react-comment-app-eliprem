@@ -3,6 +3,7 @@ import Button from "./button";
 import CommentTextbox from "./commentTextbox";
 import NameTextbox from "./nameTextbox"
 
+
 type PostingBlockProps = {
    postComment: (e: unknown, name: string, text: string, setName: unknown, setComment: unknown) => void
    buttonType: string;
@@ -21,11 +22,6 @@ const PostingBlock = ({ postComment, buttonType, parentID }: PostingBlockProps) 
         e.preventDefault();
         setComment(e.target.value);
     };
-    /*
-    const handleReply = (e: React.MouseEvent<HTMLButtonElement>) => {
-        e.preventDefault();
-    };
-    */
     
     const onPost = (e: React.FormEvent) => {
         e.preventDefault();
@@ -45,5 +41,4 @@ const PostingBlock = ({ postComment, buttonType, parentID }: PostingBlockProps) 
 
 export default PostingBlock;
 
-//worry about depth???????????
-//<Button buttonType={buttonType} onClick={e => postComment(e, name, comment)} parentID={parentID}/>
+//worry about depth here???????????

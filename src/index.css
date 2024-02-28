@@ -72,6 +72,13 @@ form {
   align-items: center;
 }
 
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
 .smaller {
   transform: scale(0.8, 0.8);
 }
@@ -180,4 +187,22 @@ ul {
   font-size: 1.25em;
   padding-top: 5px;
   padding-left: 15px;
+}
+
+.vote-button {
+  padding-right: 15px;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.time {
+  text-align: right;
+  font-family:Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+  font-size: 0.75em;
+  padding-top: 10px;
+  padding-right: 15px;
+  color: rgba(172, 160, 130, 0.8);
 }
